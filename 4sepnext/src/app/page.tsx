@@ -27,9 +27,7 @@ async function Home() {
           return (
             <li key={b.id}>
               {b.name}
-              <button className="mx-2 bg-black text-white rounded-full p-2">
-                Order
-              </button>
+              
             </li>
           );
         })}
