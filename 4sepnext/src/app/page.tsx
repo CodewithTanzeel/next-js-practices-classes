@@ -1,6 +1,7 @@
 import React from "react";
 
 interface IBook {
+  map(arg0: (b: any) => React.JSX.Element): React.ReactNode;
   id: number;
   name: string;
   type: string;
@@ -9,22 +10,29 @@ interface IBook {
 
 async function Home() {
   let baseURL = "https://simple-books-api.glitch.me";
-
   let res = await fetch(`${baseURL}/books`);
   let books: IBook = await res.json();
   // console.log(books);
 
   return (
-    <div className="justify-center text-center text-white ">
-      <h1 className=" text-4xl
-       justify-center p-5">API INVOKING</h1>
+    <div>
+      <h1
+        className=" text-4xl
+       justify-center p-5"
+      >
+        API INVOKING
+      </h1>
       <ul className="text-2xl p-9 ">
-        <li>{books[1].name}</li>
-        <li>{books[2].name}</li>
-        <li>{books[3].name}</li>
-        <li>{books[4].name}</li>
-        <li>{books[0].name}</li>
-        <li>{books[5].name}</li>
+        {books.map((b) => {
+          return (
+            <li key={b.id}>
+              {b.name}
+              <button className="mx-2 bg-black text-white rounded-full p-2">
+                Order
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
