@@ -16,11 +16,26 @@ async function Home() {
   let books:IBook = await res.json();
   // console.log(books);
 
-  books[0].name;
 
   return (
     <div className="justify-center  text-center flex">
-      <h1 className="p-4">Home</h1>
+      <h1 className="p-4">Home
+
+      </h1>
+      <ul>
+        <li>
+        books[0].name</li>
+        <li>
+        books[1].name</li>
+        <li>
+        books[2].name</li>
+        <li>
+        books[3].name</li>
+        <li>
+        books[4].name</li>
+        <li>
+        books[5].name</li>
+      </ul>
     </div>
   );
 }
